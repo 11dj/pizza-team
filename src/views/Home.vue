@@ -18,6 +18,11 @@ export default {
   name: 'home',
   components: {
     HelloWorld,
-  },
+  }
+  // ,
+  // beforeCreate () {
+  //   console.log('registerWeb3 Action dispatched from Home.vue')
+  //   this.$store.dispatch('registerWeb3')
+  // },
 };
 </script>

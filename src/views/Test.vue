@@ -1,46 +1,46 @@
 <template>
   <div>
-    <div v-if='web3'>
+    <button @click="getCompanyArrayLength">getTotal</button>
+    sdfsdf {{totalCompany}} asdf
+    <!-- <div v-if='web3'>
       web3 version {{ web3.version }}
     </div>
+    <div class='metamask-info'> -->
+      <!-- <p>Metamask: {{ web3.version }}</p> -->
+
+    <!-- </div> -->
   </div>
 </template>
 
 <script>
-import Web3 from 'web3';
-import pizzaCoinAbi from '@/abi/pizzaCoinAbi';
+// import Web3 from 'web3';
+// import pizzaCoinAbi from '@/abi/PizzaCoinAbi.json';
+
+import AuctionSystem from './DApp.js'
+
+
+let xweb3;
 
 export default {
-  name: 'Web3Example',
-  data() {
+  name: 'Test',
+  data () {
     return {
-      web3: null,
-      userAddress: '',
-      pizzaCoinAddress: '0xf13695158166ecbaed23ed689873481159a873e8',
-      pizzaCoinContract: null,
-      pizzaCoinName: '',
-      teamCount: 0,
-      teamProfile: null,
-      teamName: '',
-      memberName: '',
-      newTeamLogs: [],
-      columns: [
-        {
-          field: 'name',
-          label: 'Name',
-        },
-        {
-          field: 'teamIndex',
-          label: 'Team Index',
-        },
-        {
-          field: 'userAddress',
-          label: 'User Address',
-        },
-      ],
-    };
+      auctionSystem: null,
+      totalCompany: null,
+    }
   },
-};
+  mounted () {
+    this.auctionSystem = new AuctionSystem()
+  },
+  methods: {
+    async getCompanyArrayLength () {
+      let totalCompany = await this.auctionSystem.getCompanyArrayLength()
+      console.log(`total ${totalCompany}`)
+      this.totalCompany = totalCompany;
+    },
+  }
+}
+
 </script>
 
 <style scoped>

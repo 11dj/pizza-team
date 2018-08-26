@@ -7,9 +7,20 @@ const state = {
   tokenBalance: 0,
   playerInfo: 'You haven\'t registered',
 };
-const mutations = {};
+const mutations = {
+  isUserLoggedIn (state, payload) {
+    console.log(` payload >> ${payload}`)
+    state.isStaffLoggedIn = false
+    state.isPlayerLoggedIn = true
+  },
+};
 
-const actions = {};
+const actions = {
+  async isUserLogin ({commit}, payload) {
+    console.log(`actions isUserLogin >> ${payload}`)
+    commit('isUserLogin', payload)
+  },
+};
 
 export default {
   namespaced: true,
