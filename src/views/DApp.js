@@ -22,9 +22,10 @@ class AuctionSystem {
     let totalC, cc;
     let getCompanyArrayLength = this.auction.getCompanyArrayLength(function (err, ok) {
       console.log("sdf"+ok.toString())
-      // totalC = ok.toString()
+       v = ok
+      console.log(v.toNumber());
       console.log(JSON.stringify(ok))
-      v = JSON.stringify(ok)
+      // v = JSON.stringify(ok)
       return totalC
     })
     console.log("oo"+v)
