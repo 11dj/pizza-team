@@ -1,6 +1,8 @@
 import Web3 from 'web3'
 import abi from '@/abi/projectAbi.json'
 
+let v;
+
 class AuctionSystem {
   constructor () {
     this.web3 = new Web3(window.web3.currentProvider)
@@ -8,15 +10,26 @@ class AuctionSystem {
   }
 
   loadSmartContract () {
-    let tokenAddr = '0xD12C54dF4a00Cc33980A90300015877d58e3fEBe'
+    let tokenAddr = '0xfC05be131e58C6096F137CCa199E84d9ECD26435'
 
-    let contract = new this.web3.eth.Contract(abi, tokenAddr)
-
-    return contract
+    // let contract = new this.web3.eth.Contract(abi, tokenAddr)
+    var TestContractContract = this.web3.eth.contract(abi);
+    var TestContract = TestContractContract.at(tokenAddr);
+    return TestContract
   }
 
   async getCompanyArrayLength () {
-    let getCompanyArrayLength = await this.web3.eth.getCompanyArrayLength()
+    let totalC, cc;
+    let getCompanyArrayLength = this.auction.getCompanyArrayLength(function (err, ok) {
+      console.log("sdf"+ok.toString())
+      // totalC = ok.toString()
+      console.log(JSON.stringify(ok))
+      v = JSON.stringify(ok)
+      return totalC
+    })
+    console.log("oo"+v)
+    console.log("gg"+getCompanyArrayLength)
+
     // let etherAmt = this.web3.utils.toWei(amount.toString())
 
     // let options = {

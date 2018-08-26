@@ -30,6 +30,7 @@ export default {
     }
   },
   mounted () {
+    console.log('mounted')
     this.auctionSystem = new AuctionSystem()
   },
   methods: {
