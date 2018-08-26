@@ -1,7 +1,7 @@
 <template>
   <div>
     <button @click="getCompanyArrayLength">getTotal</button>
-    sdfsdf {{totalCompany}} asdf
+    sdfsdf> {{totalCompany}} asdf
     <!-- <div v-if='web3'>
       web3 version {{ web3.version }}
     </div>
@@ -37,7 +37,7 @@ export default {
     async getCompanyArrayLength () {
       let totalCompany = await this.auctionSystem.getCompanyArrayLength()
       console.log(`total ${totalCompany}`)
-      this.totalCompany = totalCompany;
+      // this.totalCompany = totalCompany;
     },
   }
 }
