@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-
+    firsVx: 'VVVVxxxx',
   },
   mutations: {
 
@@ -13,4 +13,9 @@ export default new Vuex.Store({
   actions: {
 
   },
+  getters: {
+    getfirstX(state) {
+      return state.firsVx;
+    }
+  }
 });

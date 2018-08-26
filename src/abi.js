@@ -1,0 +1,232 @@
+const abi = [
+  {
+   "constant": false,
+   "inputs": [
+    {
+     "name": "_name",
+     "type": "string"
+    },
+    {
+     "name": "_description",
+     "type": "string"
+    },
+    {
+     "name": "_starttimeauction",
+     "type": "uint256"
+    },
+    {
+     "name": "_stoptimeauction",
+     "type": "uint256"
+    },
+    {
+     "name": "_closetimeregister",
+     "type": "uint256"
+    }
+   ],
+   "name": "createProject",
+   "outputs": [],
+   "payable": false,
+   "stateMutability": "nonpayable",
+   "type": "function"
+  },
+  {
+   "constant": false,
+   "inputs": [
+    {
+     "name": "_user",
+     "type": "address"
+    },
+    {
+     "name": "_name",
+     "type": "string"
+    }
+   ],
+   "name": "register",
+   "outputs": [],
+   "payable": false,
+   "stateMutability": "nonpayable",
+   "type": "function"
+  },
+  {
+   "constant": false,
+   "inputs": [
+    {
+     "name": "_company",
+     "type": "address"
+    },
+    {
+     "name": "_nameProject",
+     "type": "string"
+    }
+   ],
+   "name": "registerCompanyToProject",
+   "outputs": [],
+   "payable": false,
+   "stateMutability": "nonpayable",
+   "type": "function"
+  },
+  {
+   "constant": true,
+   "inputs": [
+    {
+     "name": "",
+     "type": "address"
+    }
+   ],
+   "name": "CompanyInfo",
+   "outputs": [
+    {
+     "name": "created",
+     "type": "bool"
+    },
+    {
+     "name": "name",
+     "type": "string"
+    },
+    {
+     "name": "id",
+     "type": "uint256"
+    }
+   ],
+   "payable": false,
+   "stateMutability": "view",
+   "type": "function"
+  },
+  {
+   "constant": true,
+   "inputs": [],
+   "name": "getCompanyArrayLength",
+   "outputs": [
+    {
+     "name": "_length",
+     "type": "uint256"
+    }
+   ],
+   "payable": false,
+   "stateMutability": "view",
+   "type": "function"
+  },
+  {
+   "constant": true,
+   "inputs": [
+    {
+     "name": "_nameProject",
+     "type": "string"
+    },
+    {
+     "name": "_CompanyIndex",
+     "type": "uint256"
+    }
+   ],
+   "name": "getCompanyInProjectAtIndex",
+   "outputs": [
+    {
+     "name": "_endOfList",
+     "type": "bool"
+    },
+    {
+     "name": "_company",
+     "type": "address"
+    }
+   ],
+   "payable": false,
+   "stateMutability": "view",
+   "type": "function"
+  },
+  {
+   "constant": true,
+   "inputs": [
+    {
+     "name": "_company",
+     "type": "address"
+    }
+   ],
+   "name": "getCompanyName",
+   "outputs": [
+    {
+     "name": "_name",
+     "type": "string"
+    }
+   ],
+   "payable": false,
+   "stateMutability": "view",
+   "type": "function"
+  },
+  {
+   "constant": true,
+   "inputs": [
+    {
+     "name": "_company",
+     "type": "address"
+    },
+    {
+     "name": "_nameProject",
+     "type": "string"
+    }
+   ],
+   "name": "getCompanyStatusByProjectID",
+   "outputs": [
+    {
+     "name": "",
+     "type": "uint8"
+    }
+   ],
+   "payable": false,
+   "stateMutability": "view",
+   "type": "function"
+  },
+  {
+   "constant": true,
+   "inputs": [
+    {
+     "name": "_projectIndex",
+     "type": "uint256"
+    }
+   ],
+   "name": "getProjectsName",
+   "outputs": [
+    {
+     "name": "_name",
+     "type": "string"
+    }
+   ],
+   "payable": false,
+   "stateMutability": "view",
+   "type": "function"
+  },
+  {
+   "constant": true,
+   "inputs": [],
+   "name": "getTotalProjects",
+   "outputs": [
+    {
+     "name": "_total",
+     "type": "uint256"
+    }
+   ],
+   "payable": false,
+   "stateMutability": "view",
+   "type": "function"
+  },
+  {
+   "constant": true,
+   "inputs": [
+    {
+     "name": "_user",
+     "type": "address"
+    }
+   ],
+   "name": "isCompany",
+   "outputs": [
+    {
+     "name": "_bPlayer",
+     "type": "bool"
+    }
+   ],
+   "payable": false,
+   "stateMutability": "view",
+   "type": "function"
+  }
+ ]
+
+export default abi;
