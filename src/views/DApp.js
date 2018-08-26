@@ -26,6 +26,7 @@ class AuctionSystem {
       console.log(v.toNumber());
       console.log(JSON.stringify(ok))
       // v = JSON.stringify(ok)
+      totalC
       return totalC
     })
     console.log("oo"+v)
