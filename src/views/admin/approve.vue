@@ -7,6 +7,7 @@
       </div>
       <div class="approve-body">
         <div class="approve-table-div">
+          <div>{{ appTable }}</div>
           <table class="approve-table" cellspacing="0" cellpadding="0">
             <thead>
               <tr>
@@ -19,18 +20,18 @@
             <tbody>
               <tr>
                 <td>1</td>
-                <td>ซาโตชิ นาฬิกาละ</td>
+                <td>นาย ก</td>
                 <td>รออนุมาติ</td>
                 <td>
-                  <button v-if="textApp === 'yes'" class="approve-btn">อนุมติ</button>
+                  <button v-if="textApp === 'yes'" v-on:click='approvef' class="approve-btn">อนุมติ</button>
                 </td>
                 <td>
-                  <button v-if="textApp === 'yes'" class="reject-btn">ไม่อนุมติ</button>
+                  <button v-if="textApp === 'yes'" v-on:click='rejectf' class="reject-btn">ไม่อนุมติ</button>
                 </td>
               </tr>
               <tr>
                 <td>2</td>
-                <td>มารา อมรายตกุล</td>
+                <td>นาย ข</td>
                 <td>อนุมัติแล้ว</td>
                 <td>
                   <button v-if="textApp2 === 'yes'" class="approve-btn" disabled>อนุมติ</button>
@@ -49,6 +50,7 @@
 </template>
 <script>
 import Sidebar from '@/components/SideBar.vue';
+import AuctionSystem from '@/views/DApp'
 import Datepicker from 'vuejs-datepicker';
 import datetime from 'vuejs-datetimepicker';
 
@@ -62,8 +64,20 @@ export default {
   data () {
     return {
       textApp: 'yes',
-      textApp2: 'no'
+      textApp2: 'no',
+      // appTable: this.auctionSystem.getCompanyStatusByProjectID()
     }
+  },
+  mounted () {
+    this.auctionSystem = new AuctionSystem()
+  },
+  methods: {
+    approvef : function () {
+      this.auctionSystem.changeStatusCompany(companyid, projName, status)
+    },
+    rejectf : function () {
+      this.auctionSystem.changeStatusCompany(companyid, projName, status)
+    },
   }
 };
 </script>

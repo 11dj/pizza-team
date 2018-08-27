@@ -2,12 +2,13 @@
   <div class="side-bar">
     <div class="sidebar-div">
       <div class="sidebar-header">
-        สัสดี แอดมิน!
+        สวัสดี แอดมิน!
       </div>
       <div class="sidebar-body" id="sidebar-nav">
         <router-link to="/admin">หน้า</router-link>
         <router-link to="/admin/create">สร้างโครงการใหม่</router-link>
         <router-link to="/admin/approve">ตรวจสอบรายชื่อ</router-link>
+        <!-- <router-link to="/test">test</router-link> -->
         <!-- <router-link to="/admin/login">ออกจากระบบ</router-link> -->
         <a style="cursor: pointer;" v-on:click="signOut" >ออกจากระแบบ</a>
       </div>

@@ -9,6 +9,8 @@
         <div class="home-admin-input-div">
           <div class="home-title">รายการที่เปิดประมูลอยู่</div>
           <div class="home-table-div">
+            <button v-on:click="test">Check</button>
+            <div> {{ list }} </div>
             <table class="home-table" cellspacing="0" cellpadding="0">
               <thead>
                 <tr>
@@ -43,7 +45,6 @@
               </tbody>
             </table>
           </div>
-
         </div>
 
     
@@ -53,16 +54,13 @@
 </template>
 <script>
 import Sidebar from '@/components/SideBar.vue';
-import Datepicker from 'vuejs-datepicker';
-import datetime from 'vuejs-datetimepicker';
+import AuctionSystem from '@/views/DApp';
 import { mapGetters } from 'vuex'
 
 export default {
   name: 'test',
   components: {
-    Sidebar,
-    Datepicker,
-    datetime
+    Sidebar
   },
   computed: {
     ...mapGetters({
@@ -71,8 +69,19 @@ export default {
   },
   data () {
     return {
-      msgg: 'Helo'
+      msgg: 'Helo',
+      list: ''
     }
+  },
+  mounted () {
+    this.auctionSystem = new AuctionSystem()
+  },
+  methods: {
+    async aaa () {
+      let list = await this.auctionSystem.getTotalProject()
+      this.list = list;
+      return this.list
+    },
   }
 };
 </script>

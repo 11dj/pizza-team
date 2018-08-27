@@ -5,7 +5,7 @@
       <div class="create-header">
         <div>สร้างโครงการใหม่</div>
         <div>
-          <button v-on:click="addProject" class="create-add-btn">เพิ่ม</button>
+          <button v-on:click="addProj" class="create-add-btn">เพิ่ม</button>
         </div>
       </div>
       <div class="create-body">
@@ -105,6 +105,7 @@
 </template>
 <script>
 import firebase from 'firebase';
+import AuctionSystem from '@/views/DApp'
 import Sidebar from '@/components/SideBar.vue';
 import Datepicker from 'vuejs-datepicker';
 
@@ -137,6 +138,9 @@ export default {
       },
     }
   },
+  mounted () {
+    this.auctionSystem = new AuctionSystem()
+  },
   methods: {
     popt: function () {
       let dateString = this.regisClose.date.toUTCString();
@@ -155,8 +159,16 @@ export default {
         // User is signed out.
         // ...
       }
-});
-
+      });
+    },
+    addProj : function () {
+      let startStr = this.timeOpen.date.toUTCString().split(' ').slice(0, 4).join(' ');
+      let endStr = this.timeClose.date.toUTCString().split(' ').slice(0, 4).join(' ');
+      let closeStr = this.regisClose.date.toUTCString().split(' ').slice(0, 4).join(' ');
+      let start = parseInt( (new Date(startStr).valueOf()/1000) + (this.timeOpen.hour*3600) + (this.timeOpen.min*60) ,10)
+      let end = parseInt( (new Date(endStr).valueOf()/1000) + (this.timeClose.hour*3600) + (this.timeClose.min*60) ,10)
+      let close = parseInt( (new Date(closeStr).valueOf()/1000) + (this.regisClose.hour*3600) + (this.regisClose.min*60) ,10)
+      this.auctionSystem.createProject(projName, projDesp, start, end, close, projBudget) 
     }
   }
 };

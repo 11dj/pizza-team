@@ -5,6 +5,11 @@
 </template>
 
 <style lang="scss">
+.container {
+  width: 60%;
+  // margin-top: 100px;
+  margin: 100px auto !important;
+}
 #flex-body {
   display: flex;
 }

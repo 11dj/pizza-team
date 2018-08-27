@@ -9,9 +9,8 @@
         <div class="home-admin-input-div">
           <div>Text here</div>
           <div>Test Vuex : {{ testx }}</div>
-          <div>
-            <button v-on:click="aaaa"test> try it </button>
-          </div>
+          <button @click="getCompanyArrayLength">getTotal</button>
+          <div>that's is : {{totalCompany}} </div>
         </div>
 
     
@@ -20,29 +19,39 @@
   </div>
 </template>
 <script>
-import web3 from '@/web3'
+import AuctionSystem from '@/views/DApp'
 import Sidebar from '@/components/SideBar.vue';
 import { mapGetters } from 'vuex'
 
 export default {
   name: 'test',
+  data () {
+    return {
+      msgg: 'Helo',
+      auctionSystem: null,
+      totalCompany: null,
+    }
+  },
   components: {
     Sidebar,
-    Datepicker,
-    datetime
   },
   computed: {
     ...mapGetters({
       testx: 'getfirstX',
     })
   },
-  mounted: function(){ 
-    this.aaaa = web3.testfunc // now you can call this.foo() (in your functions/template)
+  mounted () {
+    console.log('mounted 1')
+    this.auctionSystem = new AuctionSystem()
+    console.log('mounted 2')
   },
-  data () {
-    return {
-      msgg: 'Helo'
-    }
+  methods: {
+    async getCompanyArrayLength () {
+      let totalCompany = await this.auctionSystem.getCompanyArrayLength()
+      console.log(`first ${totalCompany}`)
+      this.totalCompany = totalCompany;
+      // return this.totalCompany
+    },
   }
 };
 </script>
